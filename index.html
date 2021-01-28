@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="icon" type="image/jpg" href="ressource/favicon/solar_panel.png" />
+    <script src="https://kit.fontawesome.com/60f085d187.js" crossorigin="anonymous"></script>
+    <title>Devis panneaux solaire</title>
+</head>
+
+
+
+<body>
+    <header>
+
+        <div class="navbar">
+            <!--  Navigation bar -->
+
+            <div class="navbarContener">
+
+                <a href="index.html" class="navbarBtnActu"> Devis panneaux solaire </a>
+
+            </div>
+
+
+        </div>
+    </header>
+
+    <div class="container">
+
+        <div class="page">
+
+            <div class="title_page">
+                <p class="t_p">Faite votre devis en ligne gratuitement</p>
+            </div>
+
+            <div class="recoltes_donnees">
+
+                <p class="sous_title">1. Tous d'abord, nous allons vous pousez quelques questions :</p>
+
+                <div class="texte_recoltes_donees">
+                    • Combien de personne votre foyer compte-t-il ? : <input class="input_recoltes_donnees" type="text" id="nb_foyer" onchange="verification_recolte_donnee()" value=""> <br> <br>
+
+                    <!-- nb de personne dans le foyer -->
+
+                    • Quelle est votre surface de toit orienter plein Sud ? : <input class="input_recoltes_donnees2" type="text" id="surface_toit" onchange="verification_recolte_donnee()"> <br> <br> <!-- surface toit -->
+
+                    • Quelle est là surface chauffé dans votre foyer ( en m² ) ? : <input class="input_recoltes_donnees3" type="text" id="surface_a_chauffer"> <br> <br>
+
+                    • Quelle est votre prix de KWh ( en € ) ? : <input class="input_recoltes_donnees4" type="text" name="prix_kwh" id="prix_kwh" value="0.1557"> <br> <br>
+
+                    • Comment allez-vous utiliser la production de vos futurs panneaux ? :
+                    <div class="prod_panneaux_css">
+                        <input type="radio" id="check_rentabilite" name="btn_choix" class="input_recoltes_donnees8" value="">
+                        <label>Essentiel</label>
+                        <i class="fas fa-info-circle" title="Autoconsommation pour alimenter ma maison et réduire mes factures."></i> <br>
+
+
+
+                        <input type="radio" id="check_economique" name="btn_choix" class="input_recoltes_donnees8" value="">
+                        <label>Génération</label>
+                        <i class="fas fa-info-circle" title="Vente de la totalité de l'électricité produite pour obtenir un revenu complémentaire."></i>
+                        <br> <br>
+                    </div>
+                    • Quelle est votre type de chauffage ? :
+                    <!-- Savoir quelle type de chauffage et utiliser -> funciton economie() -->
+                    <div class="type_de_chauffage_top">
+
+                        <input type="radio" id="chauffage_electrique" name="btn_type_chauffage" class="input_recoltes_donnees5" value="">
+                        <label>Radiateur électrique</label>
+                        <br>
+
+                        <input type="radio" id="chauffage_pompe" name="btn_type_chauffage" class="input_recoltes_donnees5" value="">
+                        <label>Pompe à chaleur</label>
+                        <br>
+
+                        <input type="radio" id="chauffage_chaudiere" name="btn_type_chauffage" class="input_recoltes_donnees5" value="">
+                        <label>Chaudière</label>
+                        <br> <br>
+                    </div>
+                    • Quelle est votre type de chauffage-eau ? :
+                    <!-- Savoir quelle ets le type de chauffage pour l'eau ets utilisé -> function economie() -->
+
+                    <div class="type_chauffage_eau_top">
+                        <input type="radio" id="chauffage_ballon_electrique" name="btn_chauffage_eau" class="input_recoltes_donnees5" value="">
+                        <label>Ballon électrique classique</label>
+                        <br>
+
+                        <input type="radio" id="chauffage_pompe_eau" name="btn_chauffage_eau" class="input_recoltes_donnees5" value="">
+                        <label>Ballon thermodynamique ( pompe à chaleur )</label>
+                        <br>
+
+                        <input type="radio" id="chauffage_chaudiere_eau" name="btn_chauffage_eau" class="input_recoltes_donnees5" value="">
+                        <label>Chaudière ou autre</label>
+                        <br> <br>
+                    </div>
+
+
+                    • Quelle est votre region d'habitation ? :
+                    <div class="region_top">
+
+                        <select id="selectBox" class="input_recoltes_donnees7">
+                            <option value="">--Choississer votre region--</option>
+                            <option value="bretagne">Bretagne </option>
+                            <option value="loire">Pays de la Loire</option>
+                        </select>
+
+                    </div>
+
+
+                </div>
+
+                <div class="choix_des_panneaux_photvoltaic">
+
+                    <p class="sous_title2">2. Maintenant, nous allons procédé aux choix du panneaux solaire :</p>
+
+
+
+                    <!-- Choix du type de panneaux solaires-->
+
+                    <div class="choix_du_type_de_panneaux">
+
+                        <div>
+                            <input type="radio" id="check_monocristallin" name="btn" onClick="show_panneaux_image()">
+                            <label for="huey">Panneaux en cellules de silicium monocristallin</label>
+                        </div>
+
+                        <div>
+                            <input type="radio" id="check_polycristallin" name="btn" onClick="show_panneaux_image()">
+                            <label for="huey">Panneaux en cellules de silicium polycristallin</label>
+                        </div>
+
+                    </div>
+
+                    <div class="container_panneaux_solaire">
+                        <figure>
+
+                            <img id="monocristallin" src="ressource/image/Panneaux_en_cellules_de_silicium_monocristallin.png" style="display: none">
+                            <figcaption class="container_panneaux_solaire_texte" id="monocristallin-2" style="display: none">Modèle bi-facial I'M SOLAR 400W bi-verre, avec une garantie de garantie 30 ans et est fabriquer en Europe; ce genre de panneaux solaires on de bon rendement maximum théorique de 23.25% <br>
+                                et avec une puissance max de 400W. <br> <br>Dimention : 1703 x 1013 x 35 mm. Et d'une masse de 26 kg. </figcaption>
+
+                        </figure>
+
+                        <figure>
+
+                            <img id="polycristallin" src="ressource/image/Panneaux_en_cellules_de_silicium_polycristallin.png" style="display: none">
+                            <figcaption class="container_panneaux_solaire_texte" id="polycristallin-2" style="display: none"> Modèle VICTRON 270W, avec une garantie de 25 ans. Ce genre de panneaux solaires sont considérer comme un niveaux intermédiaire car ils sont moins chère mais un rendement de 18.3%,<br> avec une puisasance max de 270W. <br> <br>Dimention : 1640 x 992 x 35 mm et une masse de 18.4 kg. </figcaption>
+
+                        </figure>
+
+                    </div>
+
+                    <script>
+                        function show_panneaux_image() {
+
+
+                            var a = document.getElementById("check_monocristallin");
+                            var b = document.getElementById("check_polycristallin");
+
+
+
+                            if (a.checked == true) {
+
+                                document.getElementById("monocristallin").style.display = 'block';
+                                document.getElementById("monocristallin-2").style.display = 'block';
+                                document.getElementById("polycristallin").style.display = 'none';
+                                document.getElementById("polycristallin-2").style.display = 'none';
+
+                            } else {
+                                document.getElementById("monocristallin-2").style.display = 'none';
+                                document.getElementById("monocristallin").style.display = 'none';
+                                document.getElementById("polycristallin").style.display = 'block';
+                                document.getElementById("polycristallin-2").style.display = 'block';
+                            }
+
+                        }
+
+                    </script>
+
+
+                    <p class="sous_title3">3. Raccordement aux réseaux électrique :</p>
+
+                    <div class="type_de_racordement_electrique">
+
+                        <p class="sous_title4">• Quelle est le type de raccordement au réseau électrique ? : </p> <br> <br> <!-- type de raccordement -->
+
+                        <div class="raccordement_top">
+
+                            <div>
+                                <input type="radio" id="aerien" name="btn2">
+                                <label for="huey">En Aérien</label>
+                            </div>
+
+                            <div>
+                                <input type="radio" id="souterrain" name="btn2">
+                                <label for="huey">En Souterrain</label>
+                            </div>
+
+                        </div>
+
+                        <p class="sous_title4"> • Votre installation électrique est : </p> <br> <br> <!-- type d'installation electrique -->
+
+                        <div class="installation_electrique_top">
+
+                            <div>
+                                <input type="radio" id="monophasée" name="btn3">
+                                <label for="huey">Monophasée</label>
+                            </div>
+
+                            <div>
+                                <input type="radio" id="triphasee" name="btn3">
+                                <label for="huey">Triphasee</label>
+                            </div>
+                        </div>
+
+                        <div class="verif_value">
+
+
+
+
+                            <script>
+                                surface_a_chauffer = document.getElementById("surface_a_chauffer");
+
+                                function verif_donnee_input() {
+
+                                    var nb_foyer = document.getElementById("nb_foyer");
+
+                                    var surface_toit = document.getElementById("surface_toit");
+
+
+
+                                    var check_rentabilite = document.getElementById("check_rentabilite");
+                                    var check_economique = document.getElementById("check_economique");
+
+                                    var selectBox = document.getElementById("selectBox");
+
+                                    var check_monocristallin = document.getElementById("check_monocristallin");
+                                    var check_polycristallin = document.getElementById("check_polycristallin");
+
+                                    var aerien = document.getElementById("aerien");
+                                    var souterrain = document.getElementById("souterrain");
+
+                                    var monophasée = document.getElementById("monophasée");
+                                    var triphasee = document.getElementById("triphasee");
+
+                                    var kwh = document.getElementById("prix_kwh");
+
+                                    var chauffage_electrique = document.getElementById("chauffage_electrique");
+                                    var chauffage_pompe = document.getElementById("chauffage_pompe");
+                                    var chauffage_chaudiere = document.getElementById("chauffage_chaudiere");
+
+                                    var chauffage_ballon_electrique = document.getElementById("chauffage_ballon_electrique");
+                                    var chauffage_pompe_eau = document.getElementById("chauffage_pompe_eau");
+                                    var chauffage_chaudiere_eau = document.getElementById("chauffage_chaudiere_eau");
+
+
+
+                                    var a = 0
+                                    var b = 0
+                                    var c = 0
+                                    var e = 0
+                                    var f = 0
+                                    var g = 0
+                                    var h = 0
+                                    var i = 0
+                                    var j = 0
+                                    var k = 0
+                                    var l = 0
+
+
+
+                                    //début de la vérif
+
+                                    if ((nb_foyer.value) == '') {
+                                        a = 1
+                                    } else {
+                                        a = 0
+                                    }
+                                    if ((surface_toit.value) == '') {
+                                        b = 1
+                                    } else {
+                                        b = 0
+                                    }
+                                    if ((surface_a_chauffer.value) == '') {
+                                        c = 1
+                                    } else {
+                                        c = 0
+                                    }
+                                    if ((check_rentabilite.checked || check_economique.checked) == false) {
+                                        e = 1
+                                    } else {
+                                        e = 0
+                                    }
+                                    if ((selectBox.value) == '') {
+                                        e = 1
+                                    } else {
+                                        e = 0
+                                    }
+                                    if ((check_monocristallin.checked || check_polycristallin.checked) == false) {
+                                        f = 1
+                                    } else {
+                                        f = 0
+                                    }
+                                    if ((aerien.checked || souterrain.checked) == false) {
+                                        g = 1
+                                    } else {
+                                        g = 0
+                                    }
+                                    if ((monophasée.checked || triphasee.checked) == false) {
+                                        h = 1
+                                    } else {
+                                        h = 0
+                                    }
+                                    if ((nb_foyer.value) == '') {
+                                        j = 1
+                                    } else {
+                                        j = 0
+                                    }
+                                    if ((chauffage_electrique.checked || chauffage_pompe.checked || chauffage_chaudiere.checked) == false) {
+                                        k = 1
+                                    } else {
+                                        k = 0
+                                    }
+                                    if ((chauffage_ballon_electrique.checked || chauffage_pompe_eau.checked || chauffage_chaudiere_eau.checked) == false) {
+                                        l = 1
+                                    } else {
+                                        l = 0
+                                    }
+
+
+
+
+                                    if ((a + b + c + e + f + g + h + i + j + k + l) != 0) {
+                                        alert("Merci de compléter tout les champs de caractère")
+                                    } else {
+                                        go();
+                                    }
+
+
+
+
+
+                                }
+
+                            </script>
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="btn_resultat">
+
+                <p class="sous_title3">4. Cliquer sur lancer le devis pour avoir votre devis en ligne :</p>
+
+                <div class="btn_lancer_le_devis">
+
+                    <button onclick="verif_donnee_input()" class="btn_devis">Lancer le devis</button>
+
+                </div>
+
+
+            </div>
+
+
+
+
+            <div class="choix_onduleur" id="container_onduleur" style="display: none">
+
+                <p class="sous_title3">L'onduleur adapter a vos besion est : </p>
+
+                <img class="onduleur_choix" src="ressource/image/fronius_symo_onduleur.png">
+
+                <p class="onduleur_text_area">Le <span id="onduleur_text3"></span> est un onduleur de type <span id="onduleur_text1"></span>, il permet une puissance de <span id="onduleur_text4"></span> KWh et sont prix est de <span id="onduleur_text2"></span>€, il a une dimention de 65 cm de hauteur par 43 cm de largeur, il faut de préfèrence le placé a coté de son tableau électrique et à une hauteur recomander de 1 m 20.
+
+
+
+
+                </p>
+
+
+            </div>
+
+            <div class="choix_ballon" id="container_ballon" style="display: none">
+
+                <p class="sous_title3">Le ballon d'eau chaude adapter a vos besion est : </p>
+
+                <img class="ballon_choix" src="ressource/image/ballon.png">
+
+                <p class="ballon_text_area">Le Ballon Solaire de marque ECS a une capacité de <span id="ballon_capacite"></span>L, tout en inox et intègre trape de visite et thermomètre, enfin il a un prix de <span id="ballon_prix"></span>€.
+
+                </p>
+
+
+            </div>
+
+
+
+
+
+            <div class="configuration" id="config_show" style="display: none">
+
+
+                <p class="sous_title3">Votre configuration : </p>
+
+                <div class="config_top">
+                    <div class="votre_configura">
+
+                        <p class="config">Nombre de panneaux solaires photovoltaïques :<span id="config_nb_panneaux_solaire_photo"></span> </p>
+                        <p class="config2">soit une puissance de <span id="puissance_max_panneaux_solaire"></span> Watts-crêtes <i class="fas fa-info-circle" title="Puissance maximal théorique développer par les panneaux solaires."></i></p>
+
+                        <p class="config">Nombre de panneaux solaires thermique : <span id="config_nb_panneaux_solaire_thermique"></span> </p>
+
+                        <p class="config">Production électrique annuelle de <span id="prod_theorique_panneaux_photo_anuelle"></span> kWh <i class="fas fa-info-circle" title="Production sans ombrage venant a faire baisser le rendement du panneaux."></i></p>
+
+                        <p class="config">Prime à l'investissement <span id="prime"></span> € TTC <i class="fas fa-info-circle" title="Prime lié a un pallier de puissance, plus l'installation est productif, plus la prime sera faible par kWh."></i></p>
+
+                        <p class="config">Prix total de l'installation <span id="prix_total_installation"></span> € TTC <i class="fas fa-info-circle" title="Prix de l'ensemble des panneaux solaires photovoltaïque et thermique, avec leurs armartures ( 50€ unité ), main d'ouvre et moins la prime à l'investissement"></i> </p>
+
+                    </div>
+                </div>
+
+                <div class="vos_revenu">
+                    <div class="revenue_top">
+
+                        <p class="config">Vos revenus nets cumulés sur 25 ans <span id="economie_25_ans_ap"></span> € </p>
+
+                        <p class="config">Votre contribution pour la planète <span id="dechet_radio_actif"></span> kg </p>
+                        <p class="config2">Déchets radioactifs évités sur 25 ans.</p>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="script_JS">
+
+        <script type="text/javascript">
+            function go() {
+
+
+
+
+                dim = 0; //dimention du panneau photo
+                prix_panneaux_photo = 0 //prix du panneau solaire photo
+                puissance_unité_panneau_photo = 0 //donne la puissance d'une unité de panneau solaire
+
+
+                function dim_panneaux_choisi_function() { //donne la dim + le prix du panneau qui a été selectionné
+
+                    var a = document.getElementById("check_monocristallin");
+
+
+                    if (a.checked == true) {
+
+                        dim = 1.725139;
+                        prix_panneaux_photo = 195.00;
+                        puissance_unité_panneau_photo = 400;
+
+
+                    } else {
+
+                        dim = 1.62688;
+                        prix_panneaux_photo = 193.80;
+                        puissance_unité_panneau_photo = 270;
+                    }
+
+                    return dim;
+                }
+
+                dim_panneaux_choisi_function();
+
+
+
+
+                //Appelles des variables :
+
+                dim_panneaux_thermique = 2.09;
+                x = document.getElementById("nb_foyer"); //nb de personne dan le foyer          
+                var conso_eau = x.value * 50; //calcule de la conso de l'eau             
+                var electricité_chauf_eau_use = conso_eau * 50; //calcule de la conso en élec pour le chauffage d'eau chaude               
+                var surface_panneauxthermique_mini = x.value * 1.25; //calcule le nb de panneaux thermique a utiliser pour tant de personnes
+
+                function nb_panneaux_thermique_function() {
+
+                    var nb_panneaux_thermique = 0;
+                    nb_panneaux_thermique_final = 0;
+
+                    while (nb_panneaux_thermique <= surface_panneauxthermique_mini) {
+
+                        nb_panneaux_thermique = nb_panneaux_thermique + dim_panneaux_thermique
+                        nb_panneaux_thermique_final = nb_panneaux_thermique_final + 1
+                    }
+                    return nb_panneaux_thermique_final; //calcule le nb de panneaux thermique qu'il faut pour tous le foyer.
+                }
+
+                nb_panneaux_thermique_function();
+
+                var prix_panneauxthermique = nb_panneaux_thermique_final * 393; //calcule du prix des paneaux thermique
+                surface_toit = document.getElementById("surface_toit"); //surface du toit total ?
+                surface_allouer_panneau_solaire_thermique = dim_panneaux_thermique * nb_panneaux_thermique_final; //surface a alloué au panneau solaire thermique
+                var prix_panneauxsolaire = surface_allouer_panneau_solaire_thermique * 200; //A REVOIR
+
+                surface_allouer_panneau_photo = surface_toit.value - (nb_panneaux_thermique_final * dim_panneaux_thermique)
+
+
+
+                //180 jours de chauffage
+
+                function economie() { //Permet de déterminer les économies réalisées, énergie use pour chauffer l'eau ( panneaux thermique ), consomation d'énergie électrique - (panneau photo), calcule du nb de jour avec soleil pour calculer le nb de jour de fonctionement, calcule du prix à l'investissement ( aide de l'état ... - d'impot), trouver la conso en eau chaude total du foyer pour ensuite calculer la l'nergie use pour faire dhauffer cette eau puit ap le rendement jour soleil / pas soleil par département
+
+                    //type de chauffage
+                    /*
+                                        var a = document.getElementById("chauffage_electrique");
+                                        var b = document.getElementById("chauffage_pompe");
+                                        var c = document.getElementById("chauffage_chaudiere");
+
+                                        //type de chauffage-eau
+
+                                        var d = document.getElementById("chauffage_ballon_electrique");
+                                        var e = document.getElementById("chauffage_pompe");
+                                        var f = document.getElementById("chauffage_chaudiere_eau");
+                                        */
+
+                    //calcule du la conso du foyer en eau chaude 
+
+                    conso_eau_chaude_sanitaire_total = x.value * 50 // 50 L/pers
+
+                    //calcule de l'energie electrique pour produire l'eau chaude sanitaire
+
+                    energie_use_eau_chaude_sanitaire_total = 0
+                    energie_use_chauffage_total = 0
+
+                    function energie_use_eau_chaude_sanitaire_total_function() {
+
+                        var a = document.getElementById("chauffage_ballon_electrique");
+                        var b = document.getElementById("chauffage_pompe_eau");
+                        var c = document.getElementById("chauffage_chaudiere_eau");
+
+
+                        if (a.checked == true) { //formule pour calculer l’énergie nécessaire pour 1 000 litres d’eau (soit 1 m3) : Chaleur massique de l’eau x (température eau chaude – température eau froide)
+
+                            energie_use_eau_chaude_sanitaire_total = conso_eau_chaude_sanitaire_total * 60; //Wh par litre pour chauffe eau
+                        } else if (b.checked == true) {
+
+                            energie_use_eau_chaude_sanitaire_total = conso_eau_chaude_sanitaire_total * 34; //Wh par litre pour pompe a chaleur
+                        } else if (c.checked == true) {
+                            energie_use_eau_chaude_sanitaire_total = 0.05 //Wh
+
+                        }
+
+
+                    }
+                    energie_use_eau_chaude_sanitaire_total_function(); //energie electrique consommer par jour en Wh
+
+                    function energie_use_chauffage_fucntion() {
+
+                        var d = document.getElementById("chauffage_electrique");
+                        var e = document.getElementById("chauffage_pompe");
+                        var f = document.getElementById("chauffage_chaudiere");
+
+
+
+                        if (d.checked == true) {
+                            energie_use_chauffage_total = surface_a_chauffer.value * 85
+
+                        } else if (e.checked == true) {
+                            energie_use_chauffage_total = surface_a_chauffer.value * 45
+
+                        } else if (f.checked == true) {
+
+                            energie_use_chauffage_total = surface_a_chauffer.value * 0.05
+                        }
+
+
+
+                    }
+                    energie_use_chauffage_fucntion();
+
+
+                    //calcule du prix du chauffage + eau sanitaire par an
+                    var prix_kwh = document.getElementById("prix_kwh")
+
+                    prix_chauffage_total = ((energie_use_chauffage_total * 365 + energie_use_eau_chaude_sanitaire_total * 365) / 1000) * prix_kwh.value;
+                    var select_region = document.getElementById("selectBox")
+
+                    economie_energie_total = 0 //donner l'energie economiser energie consomer - % de jour ensolléile dans la region
+
+                    //calcule de l'argent economiser 
+
+                    if (select_region.value == "bretagne") {
+
+                        economie_energie_total = prix_chauffage_total * 0.78 // 0.78 % de temps ou les panneaux fonctionneron
+
+                    } else if (select_region.value == "loire") {
+
+                        economie_energie_total = prix_chauffage_total * 0.77 // 0.77 % de temps ou les panneaux fonctionneron
+
+                    }
+
+
+                }
+                economie();
+
+
+                nb_panneaux_photo_final = 0;
+
+                function nb_panneaux_photovolt_function() {
+
+
+
+                    var a = document.getElementById("check_rentabilite");
+                    var b = document.getElementById("check_economique");
+                    var selectBox = document.getElementById("selectBox");
+                    var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+                    //selectedValue);
+
+
+
+
+                    if (a.checked == true) { //Modèle rentabilité
+
+                        nb_panneaux_photo_final = Math.round(x.value * 2.5)
+
+                    } else { // Modèle économique
+                        var surface_panneaux_photo = 0
+                        while (surface_panneaux_photo < surface_allouer_panneau_photo) {
+                            surface_panneaux_photo = surface_panneaux_photo + dim
+                            nb_panneaux_photo_final = nb_panneaux_photo_final + 1
+                        }
+                        nb_panneaux_photo_final = nb_panneaux_photo_final - 1
+                    }
+                }
+                nb_panneaux_photovolt_function();
+
+
+                var prix_panneaux_photo_final = nb_panneaux_photo_final * prix_panneaux_photo;
+
+                //Envoies des variables :
+
+                puissance_panneau_photo = nb_panneaux_photo_final * puissance_unité_panneau_photo //calcule la puissance des panneau solaire photo
+
+
+                function onduleur_choix() { //donne le puissance de l'onduleur, le prix, les dimentions, (mono ou triphasé), nom
+                    prix_onduleur = 0
+
+                    var a = document.getElementById("monophasée");
+                    var b = document.getElementById("triphasee");
+
+
+                    if (a.checked == true) {
+
+                        document.getElementById('onduleur_text1').innerHTML = "monophasé";
+                    } else {
+                        document.getElementById('onduleur_text1').innerHTML = "triphasé";
+                    }
+
+
+                    if (puissance_panneau_photo <= 9000) {
+
+                        document.getElementById('onduleur_text2').innerHTML = "999"; //prix
+                        prix_onduleur = 999
+                        document.getElementById('onduleur_text3').innerHTML = "Fronius Primo"; //nom
+                        document.getElementById('onduleur_text4').innerHTML = "3 à 9";
+
+
+                    } else if (puissance_panneau_photo <= 20000) {
+                        document.getElementById('onduleur_text2').innerHTML = "2000"; //prix
+                        prix_onduleur = 2000
+                        document.getElementById('onduleur_text3').innerHTML = "Fronius Symo"; //nom
+                        document.getElementById('onduleur_text4').innerHTML = "3 à 20";
+
+                    } else if (puissance_panneau_photo <= 37000) {
+                        document.getElementById('onduleur_text2').innerHTML = "3000";
+                        //prix
+                        prix_onduleur = 3000
+                        document.getElementById('onduleur_text3').innerHTML = "Fronius Eco"; //nom
+                        document.getElementById('onduleur_text4').innerHTML = "20 à 37";
+
+                    } else if (puissance_panneau_photo > 37000) {
+                        document.getElementById('onduleur_text2').innerHTML = "∞"; //prix
+
+                        document.getElementById('onduleur_text3').innerHTML = "Fronius infiny capacity"; //nom
+                        document.getElementById('onduleur_text4').innerHTML = "27 à +∞";
+                    }
+
+                }
+
+
+
+                function ballon_choix_function() {
+
+                    var prix = 0;
+                    var litre = 0;
+
+
+                    var litre_mini = x.value * 50
+
+                    if (litre_mini <= 250) {
+
+                        prix = 300;
+                        litre = 250;
+
+                    } else if (litre_mini <= 500) {
+
+                        prix = 600;
+                        litre = 500;
+
+                    } else if (litre_mini <= 1000) {
+
+                        prix = 1200;
+                        litre = 1000;
+                    } else if (litre_mini <= 1500) {
+
+                        prix = 1600;
+                        litre = 1500;
+                    }
+
+
+
+                    document.getElementById("ballon_capacite").innerHTML = litre; // taille en litre du ballon
+
+                    document.getElementById("ballon_prix").innerHTML = prix; // prix du ballon
+                }
+
+                ballon_choix_function();
+
+
+
+
+                montant_aide_etat = 0
+
+                function aide_etat() {
+
+
+                    //puissance_unité_panneau_photo 
+
+                    if (puissance_panneau_photo <= 3000) {
+
+                        montant_aide_etat = (puissance_panneau_photo / 1000) * 380 // montant de l'aide par KWc
+
+
+
+                    } else if (puissance_panneau_photo <= 9000) {
+
+                        montant_aide_etat = (puissance_panneau_photo / 1000) * 280 // montant de l'aide par KWc
+
+
+                    } else if (puissance_panneau_photo <= 36000) {
+
+                        montant_aide_etat = (puissance_panneau_photo / 1000) * 170 // montant de l'aide par KWc
+
+
+
+                    } else if (puissance_panneau_photo > 36000) {
+
+                        montant_aide_etat = (puissance_panneau_photo / 1000) * 80 // montant de l'aide par KWc
+
+
+                    }
+                }
+
+                aide_etat();
+
+
+                onduleur_choix();
+                prix_raccordement = 0;
+
+                function raccordment() {
+
+                    var a = document.getElementById("souterrain");
+
+                    if (a.checked == true) {
+
+                        prix_raccordement = 500;
+                    } else {
+
+                        prix_raccordement = 150;
+                    }
+
+
+                }
+
+                var prix_armature = (nb_panneaux_photo_final + nb_panneaux_photo_final) * 50; // prix de l'armature du toit
+
+
+
+                raccordment();
+                document.getElementById("container_onduleur").style.display = 'block';
+                document.getElementById("config_show").style.display = 'block';
+                document.getElementById("container_ballon").style.display = 'block';
+
+                var prod_theorique_panneaux_photo_anuelle_var = (puissance_panneau_photo * 5 * 365) / 1000;
+
+                var economie_energie_total_ap25_an = Math.round(economie_energie_total * 25) + nb_panneaux_photo_final * 500
+
+                var dechet_radio_int = ((2 + (Math.random() * 6)) / 2);
+                var dechet_radio_int = dechet_radio_int.toFixed(3);
+                var dechet_radio = dechet_radio_int
+
+                var prime_total = Math.round(montant_aide_etat)
+                var prix_final_installation = (prix_panneaux_photo_final + prix_panneauxthermique + prix_onduleur + prix_raccordement + prix_armature) - prime_total;
+
+                //envoie a votre configuration
+
+                document.getElementById("config_nb_panneaux_solaire_photo").innerHTML = nb_panneaux_photo_final; //nombre de panneau solaire
+
+                document.getElementById("puissance_max_panneaux_solaire").innerHTML = puissance_panneau_photo; // puissance crête
+
+                document.getElementById("config_nb_panneaux_solaire_thermique").innerHTML = nb_panneaux_thermique_final; // nb de panneaux thermique
+
+                document.getElementById("prod_theorique_panneaux_photo_anuelle").innerHTML = prod_theorique_panneaux_photo_anuelle_var;
+
+                document.getElementById("prix_total_installation").innerHTML = prix_final_installation;
+
+                document.getElementById("economie_25_ans_ap").innerHTML = economie_energie_total_ap25_an;
+
+                document.getElementById("dechet_radio_actif").innerHTML = dechet_radio;
+
+                document.getElementById("prime").innerHTML = prime_total;
+
+
+
+
+
+            }
+
+        </script>
+
+
+    </div>
+
+
+
+    <footer>
+
+        <div class="page-footer">
+            <!-- copyright -->
+
+            <div class="footer-copyright">
+                <p style="color:black">© Tous droits réservés</p>
+            </div>
+            <div class="name">
+                <p style="color:white">- Brian Perret</p>
+            </div>
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>

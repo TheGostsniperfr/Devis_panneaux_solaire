@@ -1,0 +1,374 @@
+* {
+    margin: 0px;
+    font-weight: bold;
+
+}
+
+.navbar {
+    height: 60px;
+    width: auto;
+    background: #901b13;
+    text-align: center;
+    padding-left: 15%;
+    padding-top: 1.5%;
+    border-bottom: 4px solid #b7362f;
+
+}
+
+
+.navbarBtn {
+    text-decoration: none;
+    color: white;
+    font-size: 160%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(255, 0, 0, 0.5) 0%, rgba(255, 0, 0, 0.5) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
+    transition: background-size .5s;
+}
+
+.navbarBtn:hover {
+    color: black;
+    background-size: 100% 100%;
+}
+
+.navbarContener {
+    float: left;
+}
+
+
+
+
+
+
+
+.page-footer {
+    height: 40px;
+    width: auto;
+    background-color: #901b13;
+    padding-top: 20px;
+    padding-left: 100px;
+    text-transform: uppercase;
+}
+
+.footer-copyright {
+    float: left;
+}
+
+
+
+.name {
+    padding-left: 220px;
+    background: linear-gradient(to top, rgba(255, 0, 0, 0.5) 0%, rgba(255, 0, 0, 0.5) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
+    transition: background-size .5s;
+}
+
+.name:hover {
+    background-size: 22% 1000%;
+}
+
+html {
+    font-family: verial, sans-serif;
+}
+
+
+.containerBar {
+    height: 60px;
+    width: auto;
+    background: #901b13;
+    text-align: center;
+    padding-top: 1.5%;
+    border-bottom: 4px solid #b7362f;
+    color: white;
+    text-decoration: none;
+    font-size: 200%;
+
+}
+
+.separationBar {}
+
+
+
+.navbarBtnActu {
+    text-decoration: none;
+    color: white;
+    font-size: 160%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(255, 0, 0, 0.5) 0%, rgba(255, 0, 0, 0.5) 10%, transparent 10.01%) no-repeat left bottom / 0 100%;
+    transition: background-size .5s;
+    background-size: 100% 100%;
+}
+
+.container {
+    background-image: url(../ressource/image/maison1.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+
+
+    padding-top: 3%;
+
+
+}
+
+.page {
+    background: rgba(211, 211, 211, .3);
+    margin-left: 15%;
+    margin-right: 15%;
+    min-height: 1020px;
+    height: auto;
+
+
+}
+
+.title_page {
+    text-align: center;
+    font-size: 150%;
+    padding: 3%;
+
+
+}
+
+.t_p {
+    border: solid 5px black;
+    padding: 1%;
+
+}
+
+
+#monocristallin {
+    margin: 10px;
+    width: 30%;
+}
+
+#polycristallin {
+    margin: 10px;
+    width: 12%;
+
+}
+
+.choix-panneaux {
+    margin: 20px;
+}
+
+
+
+
+
+.slider_nb_heure {
+    width: 50%;
+}
+
+
+.sous_title {
+    padding-left: 13%;
+    font-size: 120%;
+    font-weight: bold;
+    text-decoration: underline;
+    color: red;
+}
+
+.texte_recoltes_donees {
+    margin: 10px;
+    padding-left: 20px;
+    padding-top: 2%;
+}
+
+.input_recoltes_donnees {
+    margin-left: 250px;
+}
+
+.input_recoltes_donnees2 {
+    margin-left: 217px;
+}
+
+.input_recoltes_donnees3 {
+    margin-left: 178px;
+}
+
+.input_recoltes_donnees4 {
+    margin-left: 317px;
+}
+
+.input_recoltes_donnees5 {
+    margin-left: 16.3%;
+}
+
+.input_recoltes_donnees7 {
+    margin-left: 16.8%;
+}
+
+.input_recoltes_donnees6 {
+    margin-left: 44.38%;
+}
+
+.sous_title2 {
+    padding-left: 13%;
+    padding-top: 3%;
+    font-size: 120%;
+    font-weight: bold;
+    text-decoration: underline;
+    color: red;
+}
+
+.sous_title3 {
+    padding-left: 13%;
+    padding-top: 1%;
+    font-size: 120%;
+    font-weight: bold;
+    text-decoration: underline;
+    color: red;
+}
+
+
+
+.btn_lancer_le_devis {
+    padding-left: 45%;
+    padding-top: 3%;
+}
+
+.btn_devis {
+    height: 70px;
+    width: 190px;
+    border: solid 5px #901b13;
+    font-size: 110%;
+    color: red;
+    font-weight: bold;
+    background-color: white;
+}
+
+.choix_du_type_de_panneaux {
+    padding-left: 18%;
+    padding-top: 1%;
+
+}
+
+.container_panneaux_solaire {
+    padding-top: 3%;
+    padding-left: 10%;
+}
+
+.container_panneaux_solaire_texte {
+    padding-top: 3%;
+}
+
+.container_onduleur_choix {
+    padding-left: 20%;
+    font-size: 120%;
+}
+
+.sous_title4 {
+
+    padding-top: 3%;
+    font-size: 120%;
+}
+
+.type_de_racordement_electrique {
+    padding-left: 2%;
+
+}
+
+.onduleur_choix {
+    width: 15%;
+    float: left;
+    padding-top: 1.5%;
+
+}
+
+.onduleur_text_area {
+    font-size: 120%;
+    padding-left: 20%;
+    padding-top: 5%;
+}
+
+.choix_onduleur {
+    height: 300px;
+}
+
+.configuration {
+    padding-left: 10%;
+    font-size: 115%;
+    height: 500px;
+
+}
+
+.votre_configura {
+    padding: 2%;
+    background-color: white;
+    height: auto;
+    width: 37%;
+    float: left;
+}
+
+.config {
+    padding-top: 10px;
+}
+
+.config_top {
+    padding-top: 3%;
+}
+
+.vos_revenu {
+    padding: 3%;
+    margin: 2%;
+    background-color: darkgoldenrod;
+    width: auto;
+    float: right;
+}
+
+.revenue_top {
+    padding-top: 3%;
+}
+
+.config2 {
+    font-size: 80%;
+}
+
+.prod_panneaux_css {
+    padding-top: 1%;
+    padding-left: 10%;
+
+}
+
+.input_recoltes_donnees8 {
+    margin-left: 7%;
+}
+
+.type_de_chauffage_top {
+    padding-top: 1%;
+}
+
+.type_chauffage_eau_top {
+    padding-top: 1%;
+}
+
+.region_top {
+    padding-top: 1%;
+}
+
+.raccordement_top {
+    padding-left: 15%;
+}
+
+.installation_electrique_top {
+    padding-left: 15%;
+}
+
+.ballon_choix {
+    
+    float: left;
+    padding-top: 1.5%;
+    height: 70%;
+    padding-left: 3%;
+    
+}
+
+
+
+.choix_ballon {
+    height: 300px;
+}
+
+.ballon_text_area {
+        font-size: 120%;
+    padding-left: 20%;
+    padding-top: 5%;
+}
